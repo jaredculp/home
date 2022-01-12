@@ -1,0 +1,12 @@
+target/
+*.iml
+.idea/
+*.versionsBackup
+
+.project
+.classpath
+.settings
+.factorypath
+
+TODO
+.DS_Store

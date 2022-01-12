@@ -1,0 +1,34 @@
+[user]
+  name = jaredculp
+  email = jculp14@gmail.com
+[credential]
+  helper = osxkeychain
+[alias]
+  aa     = add --all
+  b      = branch
+  c      = commit
+  ca     = commit --amend --no-edit
+  cb     = checkout -b
+  cf     = commit --fixup @
+  co     = checkout
+  d      = diff
+  f      = fetch
+  l      = log --oneline
+  p      = pull
+  po     = push origin
+  r      = rebase master
+  recent = log --oneline -n5
+  s      = status
+  st     = stash
+  undo   = reset --soft HEAD@{1}
+[commit]
+  verbose = true
+[fetch]
+  prune = true
+[pull]
+  rebase = true
+[rebase]
+  autosquash = true
+  interactive = true
+[core]
+  excludesFile = ~/.gitignore_global
