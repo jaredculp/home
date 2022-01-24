@@ -4,6 +4,8 @@ if fn.empty(fn.glob(install_path)) > 0 then
   packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
 end
 
+vim.lsp.set_log_level("debug")
+
 require('user.plugins')
 require('user.lsp')
 require('user.telescope')
@@ -22,14 +24,30 @@ vim.o.background     = 'dark'
 vim.g.everforest_background = 'hard'
 vim.cmd[[colorscheme everforest]]
 
-require('nvim-treesitter.configs').setup{
-    ensure_installed = 'python',
-    highlight = {
-        enable = true
-    },
-    indent = {
-        enable = true
-    }
+ts_langs = {
+    "css",
+    "dockerfile",
+    "graphql",
+    "html",
+    "javascript",
+    "json",
+    "lua",
+    "markdown",
+    "python",
+    "scss",
+    "tsx",
+    "typescript",
 }
+for _, lang in ipairs(ts_langs) do
+    require('nvim-treesitter.configs').setup{
+        ensure_installed = lang,
+        highlight = {
+            enable = true
+        },
+        indent = {
+            enable = true
+        }
+    }
+end
 
 require('gitsigns').setup{}

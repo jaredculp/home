@@ -16,6 +16,7 @@ source_if "$HOME/.zshrc.work"
 export EDITOR=nvim
 export TERM=xterm-256color
 export PATH=$PATH:$HOME/.bin
+export PATH=$PATH:$HOME/Library/Python/3.8/bin
 
 alias vim='nvim'
 alias ls='ls -G'
