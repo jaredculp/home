@@ -11,6 +11,11 @@ return require('packer').startup(function(use)
     use 'lewis6991/gitsigns.nvim'
     use 'jose-elias-alvarez/null-ls.nvim'
 
+    use 'hrsh7th/nvim-cmp'
+    use 'hrsh7th/cmp-nvim-lsp'
+    use 'saadparwaiz1/cmp_luasnip'
+    use 'L3MON4D3/LuaSnip'
+
     if packer_bootstrap then
         require('packer').sync()
     end
