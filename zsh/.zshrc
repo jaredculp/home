@@ -14,11 +14,12 @@ source_if "$(brew --prefix zsh-syntax-highlighting)/share/zsh-syntax-highlightin
 source_if "$HOME/.zshrc.work"
 
 export EDITOR=nvim
-export TERM=xterm-256color
 export PATH=$PATH:$HOME/.bin
 export PATH=$PATH:$HOME/Library/Python/3.8/bin
 
 alias vim='nvim'
+alias vi='nvim'
+alias v='nvim'
 alias ls='ls -G'
 
 autoload -Uz vcs_info
