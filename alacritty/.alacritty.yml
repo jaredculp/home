@@ -4,8 +4,8 @@ window:
     y: 4
 font:
   normal:
-    family: SauceCodePro Nerd Font Mono
-    style: Medium
+    family: BlexMono Nerd Font
+    style: ExtraLight
   size: 14.0
 
 env:
@@ -145,4 +145,4 @@ schemes:
       cyan:    '#35a77c'
       white:   '#dfddc8'
 
-colors: *everforest_light_medium
+colors: *everforest_dark_hard
