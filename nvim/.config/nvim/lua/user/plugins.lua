@@ -15,9 +15,10 @@ return require('packer').startup(function(use)
     use 'hrsh7th/cmp-nvim-lsp'
     use 'saadparwaiz1/cmp_luasnip'
     use 'L3MON4D3/LuaSnip'
-
-    if packer_bootstrap then
-        require('packer').sync()
-    end
+    use 'folke/trouble.nvim'
+    use 'kyazdani42/nvim-web-devicons'
+    use 'nvim-lualine/lualine.nvim'
+    use 'kyazdani42/nvim-tree.lua'
+    use 'wakatime/vim-wakatime'
 end)
 
