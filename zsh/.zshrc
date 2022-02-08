@@ -15,7 +15,7 @@ source_if "$HOME/.zshrc.work"
 
 export EDITOR=nvim
 export PATH=$PATH:$HOME/.bin
-export PATH=$PATH:$HOME/Library/Python/3.8/bin
+export HOMEBREW_NO_ENV_HINTS=1
 
 alias vim='nvim'
 alias vi='nvim'
