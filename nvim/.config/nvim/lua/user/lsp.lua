@@ -14,6 +14,10 @@ local on_attach = function(client, bufnr)
   client.resolved_capabilities.document_formatting = false
   client.resolved_capabilities.document_range_formatting = false
   vim.cmd[[autocmd BufWritePre * lua vim.lsp.buf.formatting()]]
+
+  if client.name == 'tailwindcss' then
+    require('tailwindcss-colors').buf_attach(bufnr)
+  end
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
