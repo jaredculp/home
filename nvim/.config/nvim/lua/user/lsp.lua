@@ -1,12 +1,21 @@
 local lsp = require('lspconfig')
 
 local on_attach = function(client, bufnr)
-  local opts = { noremap = true, silent = true }
+  local opts = { buffer = bufnr, noremap = true, silent = true }
+  -- navigation
   vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
   vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+  vim.keymap.set('n', 'gt', vim.lsp.buf.type_definition, opts)
+  vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
   vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
   vim.keymap.set('n', 'K',  vim.lsp.buf.hover, opts)
+
+  -- actions
   vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts)
+  vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, opts)
+
+  -- diagnostics
+  vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
   vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
   vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
 
@@ -16,7 +25,9 @@ local on_attach = function(client, bufnr)
   vim.cmd[[autocmd BufWritePre * lua vim.lsp.buf.formatting()]]
 
   if client.name == 'tailwindcss' then
-    require('tailwindcss-colors').buf_attach(bufnr)
+    local tailwind = require('tailwindcss-colors')
+    tailwind.setup{}
+    tailwind.buf_attach(bufnr)
   end
 end
 

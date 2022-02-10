@@ -31,9 +31,6 @@ vim.cmd[[colorscheme everforest]]
 
 require('gitsigns').setup{}
 require('trouble').setup{}
-require('lualine').setup{}
 
 require('nvim-tree').setup{}
 vim.keymap.set('n', '<space><space>', ':NvimTreeToggle<cr>', { noremap=true, silent=true })
-
-require('tailwindcss-colors').setup{}
