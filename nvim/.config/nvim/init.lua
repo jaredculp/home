@@ -6,10 +6,12 @@ end
 
 require('user.plugins')
 require('user.cmp')
-require('user.luasnip')
 require('user.lsp')
+require('user.lualine')
+require('user.luasnip')
 require('user.telescope')
 require('user.treesitter')
+require('user.dap')
 
 vim.o.background     = 'dark'
 vim.o.completeopt    = 'menuone,noselect'
@@ -25,12 +27,10 @@ vim.o.tabstop        = 2
 vim.o.termguicolors  = true
 vim.o.showmode       = false
 vim.o.colorcolumn    = '80'
+vim.o.swapfile       = false
 
-vim.g.everforest_background = 'hard'
-vim.cmd[[colorscheme everforest]]
+--vim.g.everforest_background = 'hard'
+--vim.cmd[[colorscheme everforest]]
+vim.cmd[[colorscheme tokyonight]]
 
-require('gitsigns').setup{}
-require('trouble').setup{}
-
-require('nvim-tree').setup{}
 vim.keymap.set('n', '<space><space>', ':NvimTreeToggle<cr>', { noremap=true, silent=true })

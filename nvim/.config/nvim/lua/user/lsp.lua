@@ -5,7 +5,7 @@ local on_attach = function(client, bufnr)
   -- navigation
   vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
   vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
-  vim.keymap.set('n', 'gt', vim.lsp.buf.type_definition, opts)
+  vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, opts)
   vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
   vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
   vim.keymap.set('n', 'K',  vim.lsp.buf.hover, opts)
@@ -34,7 +34,7 @@ end
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
-local langs = { 'pylsp', 'tsserver', 'tailwindcss' }
+local langs = { 'pyright', 'tsserver', 'tailwindcss', 'terraformls' }
 for _, lang in ipairs(langs) do
   lsp[lang].setup({
     on_attach = on_attach,
@@ -46,7 +46,7 @@ end
 local null_ls = require('null-ls')
 local sources = {
   null_ls.builtins.formatting.black.with({
-    extra_args = { "-l", "79", "--experimental-string-processing" },
+    --extra_args = { "-l", "79", "--experimental-string-processing" },
   }),
   null_ls.builtins.formatting.eslint,
   null_ls.builtins.formatting.isort.with({
