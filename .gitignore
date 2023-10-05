@@ -1,0 +1,9 @@
+# zsh
+.zcompdump*
+.zsh_history
+.zsh_sessions
+ohmyzsh
+zsh/.config/zsh/.zshrc.work
+
+# neovim
+nvim/.config/nvim/lazy-lock.json
