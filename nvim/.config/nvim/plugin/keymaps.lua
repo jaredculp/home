@@ -1,0 +1,7 @@
+vim.keymap.set("i", "jk", "<ESC>")
+vim.keymap.set("n", "[b", ":bprev<CR>")
+vim.keymap.set("n", "]b", ":bnext<CR>")
+vim.keymap.set("n", "<M-,>", "<c-w>5<")
+vim.keymap.set("n", "<M-.>", "<c-w>5>")
+vim.keymap.set("n", "<M-t>", "<C-W>+")
+vim.keymap.set("n", "<M-s>", "<C-W>-")

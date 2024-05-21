@@ -1,19 +1,6 @@
--- leader
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
--- opts
-vim.o.clipboard = "unnamed"
-vim.o.number = true
-vim.o.relativenumber = true
-vim.o.expandtab = true
-vim.o.shiftwidth = 2
-vim.o.softtabstop = 2
-vim.o.tabstop = 2
-vim.o.list = true
-vim.o.listchars = "tab:┊ "
-
--- lazy
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
 	vim.fn.system({
@@ -27,9 +14,4 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup("plugins", {
-	change_detection = { notify = false },
-})
-
--- keymaps
-vim.keymap.set("i", "jk", "<ESC>", { desc = "Exist insert mode with jk" })
+require("lazy").setup("plugins")
