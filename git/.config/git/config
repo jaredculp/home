@@ -1,42 +1,51 @@
-[user]
-  name = jaredculp
-  email = jculp14@gmail.com
-[credential]
-  helper = osxkeychain
 [alias]
-  aa     = add --all
-  b      = branch
-  c      = commit
-  ca     = commit --amend --no-edit
-  cb     = checkout -b
-  cf     = commit --fixup @
-  h      = cherry-pick
-  ha     = cherry-pick --abort
-  hc     = cherry-pick --continue
-  co     = checkout
-  d      = diff
-  f      = fetch
-  l      = log --oneline --graph
-  ll     = log --oneline --graph -n5
-  p      = pull
-  pr     = pull origin main --rebase
-  po     = "!f() { git push origin $(git symbolic-ref --short HEAD); }; f"
-  pf     = "!f() { git push origin --force-with-lease $(git symbolic-ref --short HEAD); }; f"
-  r      = rebase
-  ra     = rebase --abort
-  rc     = rebase --continue
-  s      = status
-  st     = stash
-  undo   = reset --soft HEAD@{1}
-  nuke   = !git reset --hard HEAD && git clean -fd
+	a = add -p
+	aa = add .
+	b = checkout
+	bb = checkout -b
+	c = commit
+	cc = commit --amend
+  cf = commit --fixup HEAD
+	p = pull
+	pp = push
+	pom = pull origin main
+	s = status
+[branch]
+	sort = -committerdate
+[column]
+	ui = auto
 [commit]
-  verbose = true
-[fetch]
-  prune = true
-[pull]
-  rebase = true
-[rebase]
-  autosquash = true
-  interactive = true
+	verbose = true
 [core]
   excludesFile = ~/.config/git/ignore
+  pager = delta
+[credential]
+  helper = osxkeychain
+[diff]
+	algorithm = histogram
+	colorMoved = plain
+	mnemonicPrefix = true
+	renames = true
+[init]
+	defaultBranch = main
+[fetch]
+	all = true
+	prune = true
+	pruneTags = true
+[pull]
+  rebase = true
+[push]
+	autoSetupRemote = true
+	default = current
+	followTags = true
+[rebase]
+  autoSquash = true
+	autoStash = true
+  interactive = true
+	updateRefs = true
+[rerere]
+	autoupdate = true
+	enabled = true
+[user]
+  email = jculp14@gmail.com
+  name = jaredculp

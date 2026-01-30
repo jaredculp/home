@@ -1,0 +1,9 @@
+export XDG_CACHE_HOME="${HOME}/.cache"
+export XDG_CONFIG_HOME="${HOME}/.config"
+export XDG_DATA_HOME="${HOME}/.local/share"
+export XDG_STATE_HOME="${HOME}/.local/state"
+export PATH="$HOME/.local/bin:$PATH"
+export SHELL=/opt/homebrew/bin/zsh
+export EDITOR=nvim
+export VIRTUAL_ENV_DISABLE_PROMPT=1
+export HOMEBREW_BUNDLE_FILE="${HOME}/.config/Brewfile"
