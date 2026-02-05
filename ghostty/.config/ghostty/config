@@ -1,3 +1,19 @@
 theme = Oxocarbon
 font-family = Berkeley Mono
 font-size = 18
+
+keybind = super+ctrl+arrow_up=unbind
+keybind = super+shift+arrow_up=resize_split:up,10
+
+keybind = super+ctrl+arrow_down=unbind
+keybind = super+shift+arrow_down=resize_split:down,10
+
+keybind = super+ctrl+arrow_left=unbind
+keybind = super+shift+arrow_left=resize_split:left,10
+
+keybind = super+ctrl+arrow_right=unbind
+keybind = super+shift+arrow_right=resize_split:right,10
+
+keybind = super+ctrl+equal=unbind
+keybind = super+shift+equal=equalize_splits
+
