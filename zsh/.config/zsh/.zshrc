@@ -5,7 +5,9 @@ autoload -U colors && colors
 autoload -U vcs_info
 precmd() { vcs_info }
 setopt prompt_subst
-PS1='%~ %{$fg[magenta]%}${vcs_info_msg_0_}%{$reset_color%}$ '
+PS1='
+%~ %{$fg[magenta]%}${vcs_info_msg_0_}%{$reset_color%}
+🪿 '
 zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:*' unstagedstr '*'
 zstyle ':vcs_info:*' stagedstr '+'

@@ -1,6 +1,6 @@
-theme = Oxocarbon
+theme = Carbonfox
 font-family = Berkeley Mono
-font-size = 18
+font-size = 15
 
 keybind = super+ctrl+arrow_up=unbind
 keybind = super+shift+arrow_up=resize_split:up,10

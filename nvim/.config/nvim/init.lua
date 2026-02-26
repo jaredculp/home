@@ -14,45 +14,64 @@ vim.pack.add({
 	"https://github.com/neovim/nvim-lspconfig",
 	"https://github.com/nvim-mini/mini.nvim",
 	"https://github.com/nvim-treesitter/nvim-treesitter",
+	"https://github.com/stevearc/aerial.nvim",
 	"https://github.com/stevearc/conform.nvim",
 	"https://github.com/stevearc/oil.nvim",
-	"https://github.com/nyoom-engineering/oxocarbon.nvim",
+	"https://github.com/xero/miasma.nvim",
+	"https://github.com/EdenEast/nightfox.nvim",
 })
 
 vim.o.background = "dark"
-vim.cmd.colorscheme("oxocarbon")
+vim.api.nvim_create_autocmd("ColorScheme", {
+	pattern = "*",
+	callback = function()
+		vim.cmd("hi! link MiniPickMatchCurrent Visual")
+	end,
+})
+vim.cmd.colorscheme("carbonfox")
 
-require("mini.icons").setup()
-require("mini.statusline").setup()
-
+-- file browser
 require("oil").setup()
 vim.keymap.set("n", "-", "<CMD>Oil<CR>")
 
+require("aerial").setup({
+	on_attach = function(bufnr)
+		vim.keymap.set("n", "{", "<CMD>AerialPrev<CR>", { buffer = bufnr })
+		vim.keymap.set("n", "}", "<CMD>AerialNext<CR>", { buffer = bufnr })
+	end,
+})
+vim.keymap.set("n", "<leader>a", "<CMD>AerialToggle!<CR>")
+
+-- mini.nvim
+local mini_modules = {
+	"diff",
+	"icons",
+	"indentscope",
+	"git",
+	"pairs",
+	"pick",
+	"statusline",
+	"tabline",
+}
+for _, mini in ipairs(mini_modules) do
+	require("mini." .. mini).setup()
+end
+
+-- fuzzy finder
 local pick = function(mapping, picker)
-	require("mini.pick").setup()
 	vim.keymap.set("n", "<leader>" .. mapping, require("mini.pick").builtin[picker])
 end
 pick("b", "buffers")
 pick("f", "files")
 pick("/", "grep_live")
 
-vim.lsp.config("lua_ls", {
-	settings = {
-		Lua = {
-			diagnostics = {
-				globals = { "vim" },
-			},
-		},
-	},
+-- lsp
+vim.api.nvim_create_autocmd("LspAttach", {
+	callback = function(args)
+		vim.lsp.completion.enable(true, args.data.client_id, args.buf)
+	end,
 })
-vim.lsp.config("ts_ls", {
-	filetypes = {
-		"javascript",
-		"javascriptreact",
-		"typescript",
-		"typescriptreact",
-	},
-})
+
 vim.lsp.enable({
 	"lua_ls",
 	"ty",
@@ -60,6 +79,7 @@ vim.lsp.enable({
 })
 vim.keymap.set("n", "gd", vim.lsp.buf.definition)
 
+-- formatters
 require("conform").setup({
 	formatters_by_ft = {
 		lua = { "stylua" },
